@@ -2,8 +2,8 @@
 
 :root {
   --background: #f8f8f8;
-  --foreground: #1d04a5;
-  --brand-primary: #1d04a5;
+  --foreground: #0d0051;
+  --brand-primary: #0d0051;
   --brand-accent: #9e1028;
   --brand-neutral: #ababab;
   --surface: #ffffff;
@@ -22,6 +22,16 @@
   --color-border-soft: var(--border-soft);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+@layer utilities {
+  .bg-brand-primary {
+    background-color: var(--brand-primary);
+  }
+
+  .hover\:bg-brand-accent:hover {
+    background-color: var(--brand-accent);
+  }
 }
 
 @media (prefers-color-scheme: dark) {

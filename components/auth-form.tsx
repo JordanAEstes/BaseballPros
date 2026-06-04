@@ -46,7 +46,7 @@ export function AuthForm({ mode }: AuthFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-sm flex-col gap-5 rounded border border-border-soft bg-surface p-6 shadow-sm"
+      className="flex w-full max-w-sm flex-col gap-5 rounded border border-border-soft bg-surface p-6 shadow-sm sm:w-96"
     >
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold text-brand-primary">
