@@ -46,42 +46,42 @@ export function AuthForm({ mode }: AuthFormProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-full max-w-sm flex-col gap-5 rounded border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-800 dark:bg-black"
+      className="flex w-full max-w-sm flex-col gap-5 rounded border border-border-soft bg-surface p-6 shadow-sm"
     >
       <div className="space-y-1">
-        <h1 className="text-2xl font-semibold text-zinc-950 dark:text-zinc-50">
+        <h1 className="text-2xl font-semibold text-brand-primary">
           {isRegister ? "Create account" : "Log in"}
         </h1>
-        <p className="text-sm text-zinc-600 dark:text-zinc-400">
+        <p className="text-sm text-brand-neutral">
           {isRegister ? "Start tracking your stats." : "Welcome back."}
         </p>
       </div>
 
       {isRegister ? (
-        <label className="flex flex-col gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+        <label className="flex flex-col gap-2 text-sm font-medium text-brand-primary dark:text-brand-neutral">
           Name
           <input
             name="name"
             type="text"
             autoComplete="name"
             required
-            className="rounded border border-zinc-300 bg-white px-3 py-2 text-base text-zinc-950 outline-none transition focus:border-zinc-950 dark:border-zinc-700 dark:bg-black dark:text-zinc-50 dark:focus:border-zinc-100"
+            className="rounded border border-border-soft bg-surface px-3 py-2 text-base text-foreground outline-none transition focus:border-brand-primary"
           />
         </label>
       ) : null}
 
-      <label className="flex flex-col gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+      <label className="flex flex-col gap-2 text-sm font-medium text-brand-primary dark:text-brand-neutral">
         Email
         <input
           name="email"
           type="email"
           autoComplete="email"
           required
-          className="rounded border border-zinc-300 bg-white px-3 py-2 text-base text-zinc-950 outline-none transition focus:border-zinc-950 dark:border-zinc-700 dark:bg-black dark:text-zinc-50 dark:focus:border-zinc-100"
+          className="rounded border border-border-soft bg-surface px-3 py-2 text-base text-foreground outline-none transition focus:border-brand-primary"
         />
       </label>
 
-      <label className="flex flex-col gap-2 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+      <label className="flex flex-col gap-2 text-sm font-medium text-brand-primary dark:text-brand-neutral">
         Password
         <input
           name="password"
@@ -89,12 +89,12 @@ export function AuthForm({ mode }: AuthFormProps) {
           autoComplete={isRegister ? "new-password" : "current-password"}
           required
           minLength={8}
-          className="rounded border border-zinc-300 bg-white px-3 py-2 text-base text-zinc-950 outline-none transition focus:border-zinc-950 dark:border-zinc-700 dark:bg-black dark:text-zinc-50 dark:focus:border-zinc-100"
+          className="rounded border border-border-soft bg-surface px-3 py-2 text-base text-foreground outline-none transition focus:border-brand-primary"
         />
       </label>
 
       {error ? (
-        <p className="rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300">
+        <p className="rounded border border-brand-accent/30 bg-brand-accent/10 px-3 py-2 text-sm text-brand-accent">
           {error}
         </p>
       ) : null}
@@ -102,7 +102,7 @@ export function AuthForm({ mode }: AuthFormProps) {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded bg-black px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800 disabled:cursor-not-allowed disabled:opacity-60 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+        className="rounded bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-accent disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isSubmitting
           ? isRegister
@@ -113,11 +113,11 @@ export function AuthForm({ mode }: AuthFormProps) {
             : "Log in"}
       </button>
 
-      <p className="text-center text-sm text-zinc-600 dark:text-zinc-400">
+      <p className="text-center text-sm text-brand-neutral">
         {isRegister ? "Already have an account?" : "Need an account?"}{" "}
         <Link
           href={isRegister ? "/login" : "/register"}
-          className="font-medium text-zinc-950 underline-offset-4 hover:underline dark:text-zinc-50"
+          className="font-medium text-brand-primary underline-offset-4 hover:text-brand-accent hover:underline"
         >
           {isRegister ? "Log in" : "Register"}
         </Link>

@@ -14,19 +14,19 @@ export function AuthStatus() {
   }
 
   if (isPending) {
-    return <div className="h-10 w-40 rounded bg-zinc-100 dark:bg-zinc-900" />;
+    return <div className="h-10 w-40 rounded bg-surface-muted" />;
   }
 
   if (session?.user) {
     return (
       <div className="flex flex-wrap items-center gap-3 text-sm">
-        <span className="text-zinc-600 dark:text-zinc-400">
+        <span className="text-brand-primary dark:text-brand-neutral">
           {session.user.email}
         </span>
         <button
           type="button"
           onClick={handleSignOut}
-          className="rounded border border-zinc-300 px-4 py-2 font-medium text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-900"
+          className="rounded border border-border-soft px-4 py-2 font-medium text-brand-primary transition hover:border-brand-accent hover:text-brand-accent"
         >
           Sign out
         </button>
@@ -38,13 +38,13 @@ export function AuthStatus() {
     <div className="flex flex-wrap items-center gap-3">
       <Link
         href="/login"
-        className="rounded border border-zinc-300 px-4 py-2 text-sm font-medium text-zinc-900 transition hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-50 dark:hover:bg-zinc-900"
+        className="rounded border border-border-soft px-4 py-2 text-sm font-medium text-brand-primary transition hover:border-brand-accent hover:text-brand-accent"
       >
         Log in
       </Link>
       <Link
         href="/register"
-        className="rounded bg-black px-4 py-2 text-sm font-medium text-white transition hover:bg-zinc-800 dark:bg-white dark:text-black dark:hover:bg-zinc-200"
+        className="rounded bg-brand-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-brand-accent"
       >
         Register
       </Link>
