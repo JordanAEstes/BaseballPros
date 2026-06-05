@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "db:migrate": "node scripts/migrate.mjs",
+    "db:rollback": "node scripts/migrate.mjs down"
   },
   "dependencies": {
     "better-auth": "^1.6.14",
