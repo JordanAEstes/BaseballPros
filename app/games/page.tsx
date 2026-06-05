@@ -1,11 +1,9 @@
-import {
-  StatsDashboard,
-} from "@/components/stats-dashboard";
+import { GameLog } from "@/components/game-log";
 import { SignedOutStats } from "@/components/signed-out-stats";
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/session";
 
-export default async function StatsPage() {
+export default async function GamesPage() {
   const user = await getCurrentUser();
 
   if (!user) {
@@ -26,7 +24,7 @@ export default async function StatsPage() {
 
   return (
     <main className="flex flex-1 justify-center bg-background px-6 py-16">
-      <StatsDashboard stats={stats} userEmail={user.email} />
+      <GameLog stats={stats} />
     </main>
   );
 }
