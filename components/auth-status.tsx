@@ -10,6 +10,7 @@ export function AuthStatus() {
 
   async function handleSignOut() {
     await authClient.signOut();
+    router.push("/");
     router.refresh();
   }
 
@@ -28,6 +29,12 @@ export function AuthStatus() {
           className="rounded border border-border-soft px-4 py-2 font-medium text-brand-primary transition hover:border-brand-accent hover:text-brand-accent"
         >
           Stats
+        </Link>
+        <Link
+          href="/games"
+          className="rounded border border-border-soft px-4 py-2 font-medium text-brand-primary transition hover:border-brand-accent hover:text-brand-accent"
+        >
+          Games
         </Link>
         <button
           type="button"

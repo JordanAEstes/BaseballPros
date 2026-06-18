@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
 import type { BattingStatUpdate } from "@/lib/db-types";
@@ -69,6 +70,8 @@ export async function createBattingStat(formData: FormData) {
     .execute();
 
   revalidatePath("/stats");
+  revalidatePath("/games");
+  redirect("/games");
 }
 
 export async function updateBattingStat(formData: FormData) {
@@ -92,4 +95,24 @@ export async function updateBattingStat(formData: FormData) {
     .executeTakeFirst();
 
   revalidatePath("/stats");
+  revalidatePath("/games");
+  redirect("/games");
+}
+
+export async function deleteBattingStat(formData: FormData) {
+  const user = await getCurrentUser();
+  const id = getString(formData, "id");
+
+  if (!user || !id) {
+    throw new Error("Unauthorized");
+  }
+
+  await db
+    .deleteFrom("batting_stats")
+    .where("id", "=", id)
+    .where("user_id", "=", user.id)
+    .executeTakeFirst();
+
+  revalidatePath("/stats");
+  revalidatePath("/games");
 }

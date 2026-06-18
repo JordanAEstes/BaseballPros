@@ -39,7 +39,7 @@ export function AuthForm({ mode }: AuthFormProps) {
       return;
     }
 
-    router.push("/");
+    router.push("/stats");
     router.refresh();
   }
 

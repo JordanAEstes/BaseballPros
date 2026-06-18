@@ -29,8 +29,28 @@
     background-color: var(--brand-primary);
   }
 
+  .text-brand-primary {
+    color: var(--brand-primary);
+  }
+
+  .border-brand-primary {
+    border-color: var(--brand-primary);
+  }
+
+  .focus\:border-brand-primary:focus {
+    border-color: var(--brand-primary);
+  }
+
   .hover\:bg-brand-accent:hover {
     background-color: var(--brand-accent);
+  }
+
+  .hover\:text-brand-primary:hover {
+    color: var(--brand-primary);
+  }
+
+  .hover\:border-brand-primary:hover {
+    border-color: var(--brand-primary);
   }
 }
 

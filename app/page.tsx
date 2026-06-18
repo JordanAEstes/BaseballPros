@@ -1,6 +1,14 @@
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import { getCurrentUser } from "@/lib/session";
 
-export default function Home() {
+export default async function Home() {
+  const user = await getCurrentUser();
+
+  if (user) {
+    redirect("/stats");
+  }
+
   return (
     <main className="flex flex-1 items-center justify-center bg-background px-6 py-16 font-sans">
       <section className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
